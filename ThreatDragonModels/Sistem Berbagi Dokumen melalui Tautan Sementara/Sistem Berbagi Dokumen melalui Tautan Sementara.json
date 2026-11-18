@@ -1,0 +1,41 @@
+{
+  "version": "2.6.2",
+  "release_version": "",
+  "released_at": "2026-11-18",
+  "summary": {
+    "title": "Sistem Berbagi Dokumen melalui Tautan Sementara",
+    "owner": "Kelompok 7",
+    "description": "Sebuah organisasi menyediakan aplikasi web untuk berbagi dokumen dengan pihak\ninternal dan eksternal. Pengguna yang memiliki akun dapat mengunggah file. Backend\nmencatat pemilik, nama file, tipe file, dan waktu unggah di Database Metadata; isi file\nditempatkan pada Object Storage.\nSetelah mengunggah, pemilik dapat membuat tautan berbagi dengan masa berlaku 24\njam. Pemilik mengirim tautan itu kepada penerima melalui saluran komunikasi di luar\naplikasi. Penerima tidak harus login: ia membuka tautan pada browser, kemudian\naplikasi memproses permintaan dan menampilkan opsi unduh file.\nPemilik dapat meninjau daftar tautan aktif dan mencabut tautan sebelum kedaluwarsa.\nBackend mencatat pembuatan, pencabutan, dan penggunaan tautan dalam log audit\nyang disimpan pada Database Metadata. Admin organisasi dapat meninjau metadata\ndan log, tetapi bukan isi file secara default.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Fauzan Ahmad Choiry"
+      },
+      {
+        "name": "Putra Rizaqi Athallah"
+      },
+      {
+        "name": "Muh. Dava Razwa"
+      },
+      {
+        "name": "A. Najwa Sabrina N."
+      }
+    ],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "Sistem Berbagi Dokumen melalui Tautan Sementara",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": []
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "Dosen praktikum",
+    "threatTop": 0
+  }
+}
