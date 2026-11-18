@@ -1,0 +1,42 @@
+{
+  "version": "2.6.2",
+  "release_version": "",
+  "released_at": "2026-11-18",
+  "summary": {
+    "title": "Sistem Login mahasiswa",
+    "owner": "kelompok demo",
+    "description": "thread modeling sistem login dan profil mahasiswa berbasis web",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Fauzan Ahmad Choiry"
+      },
+      {
+        "name": "Dava Razwa"
+      },
+      {
+        "name": "A.Najwa Sabrina Nusawan"
+      },
+      {
+        "name": "Putra Rizaqi"
+      }
+    ],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": " DFD login dan profil Mahasiswa",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": [],
+        "description": "kososng"
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "Dosen praktikum",
+    "threatTop": 0
+  }
+}
