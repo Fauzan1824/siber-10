@@ -34,7 +34,41 @@
         "cells": [
           {
             "position": {
-              "x": 190,
+              "x": 466.9999999999999,
+              "y": 65
+            },
+            "size": {
+              "width": 470,
+              "height": 250
+            },
+            "attrs": {
+              "label": {
+                "text": "Trust Boundary"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "259dbcd8-bd2f-4082-981b-d544d14b3311",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "4c2fbb1f-fcf5-4d88-8655-5597a9c24136",
+                "8b67a727-d9af-44d5-9835-be0de085aa5f"
+              ],
+              "containedElements": [
+                "7bd05957-a169-46ee-9391-1960ccd79c6e",
+                "1026e9a6-3338-45bc-a211-6ff257579f22"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 90,
               "y": 160
             },
             "size": {
@@ -42,6 +76,9 @@
               "height": 60
             },
             "attrs": {
+              "text": {
+                "text": "Mahasiswa\n(Browser)"
+              },
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
@@ -136,7 +173,7 @@
             "zIndex": 1,
             "data": {
               "type": "tm.Actor",
-              "name": "Actor",
+              "name": "Mahasiswa\n(Browser)",
               "description": "",
               "isTrustBoundary": false,
               "outOfScope": false,
@@ -145,13 +182,465 @@
               "providesAuthentication": false,
               "threats": []
             },
-            "tools": {
+            "children": [
+              "4abe2e1f-7ebf-462f-bdfe-151753ae6c5c"
+            ]
+          },
+          {
+            "position": {
+              "x": 490,
+              "y": 145
+            },
+            "size": {
+              "width": 90,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "BackendAPI"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
               "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
+                {
+                  "group": "top",
+                  "id": "a0fceec7-9917-4fdf-92df-f67694dd006c"
+                },
+                {
+                  "group": "right",
+                  "id": "2ad0fc34-a1f3-4db3-94ee-7cfc4be2e86b"
+                },
+                {
+                  "group": "bottom",
+                  "id": "0b51de0f-1d70-4e2f-9c13-4277eef98d0d"
+                },
+                {
+                  "group": "left",
+                  "id": "2ca59b4b-6dde-478c-ae7e-6204192346fb"
+                }
+              ]
+            },
+            "id": "7bd05957-a169-46ee-9391-1960ccd79c6e",
+            "zIndex": 2,
+            "data": {
+              "type": "tm.Process",
+              "name": "BackendAPI",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
             }
+          },
+          {
+            "position": {
+              "x": 770,
+              "y": 160
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Database\nakun dan Profil"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "60412a7f-946e-4116-8a40-7ba4882421cf"
+                },
+                {
+                  "group": "right",
+                  "id": "edf0aa18-7c30-4534-b365-8e6440430766"
+                },
+                {
+                  "group": "bottom",
+                  "id": "0c8dde91-f11f-4fff-9886-6f92ecc990cc"
+                },
+                {
+                  "group": "left",
+                  "id": "ed4a3dc2-2e68-43f0-9b8d-372812f8cab6"
+                }
+              ]
+            },
+            "id": "1026e9a6-3338-45bc-a211-6ff257579f22",
+            "zIndex": 3,
+            "data": {
+              "type": "tm.Store",
+              "name": "Database\nakun dan Profil",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Respon login dan data profile",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "259dbcd8-bd2f-4082-981b-d544d14b3311"
+              ]
+            },
+            "labels": [
+              "Respon login dan data profile"
+            ],
+            "id": "4c2fbb1f-fcf5-4d88-8655-5597a9c24136",
+            "source": {
+              "cell": "7bd05957-a169-46ee-9391-1960ccd79c6e",
+              "port": "2ca59b4b-6dde-478c-ae7e-6204192346fb"
+            },
+            "target": {
+              "cell": "c885eea6-f7d0-40a3-bbbe-05627f8dfbaa",
+              "port": "1e60a1a8-a3dd-4936-bddc-2b1c64e02767"
+            },
+            "vertices": [
+              {
+                "x": 320,
+                "y": 330
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Kredensial dan dan permintaan profil",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "259dbcd8-bd2f-4082-981b-d544d14b3311"
+              ]
+            },
+            "labels": [
+              "Kredensial dan dan permintaan profil"
+            ],
+            "id": "8b67a727-d9af-44d5-9835-be0de085aa5f",
+            "source": {
+              "cell": "c885eea6-f7d0-40a3-bbbe-05627f8dfbaa",
+              "port": "1e60a1a8-a3dd-4936-bddc-2b1c64e02767"
+            },
+            "target": {
+              "cell": "7bd05957-a169-46ee-9391-1960ccd79c6e",
+              "port": "2ca59b4b-6dde-478c-ae7e-6204192346fb"
+            },
+            "vertices": [
+              {
+                "x": 310,
+                "y": 80
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Query ",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Query "
+            ],
+            "id": "b87b14f7-811e-4f64-a042-f58fba28e3fe",
+            "source": {
+              "cell": "7bd05957-a169-46ee-9391-1960ccd79c6e",
+              "port": "2ad0fc34-a1f3-4db3-94ee-7cfc4be2e86b"
+            },
+            "target": {
+              "cell": "1026e9a6-3338-45bc-a211-6ff257579f22",
+              "port": "ed4a3dc2-2e68-43f0-9b8d-372812f8cab6"
+            },
+            "vertices": [
+              {
+                "x": 600,
+                "y": 110
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "hasil Query",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "hasil Query"
+            ],
+            "id": "942d9934-fdab-4481-8516-3eab0afc14bb",
+            "source": {
+              "cell": "1026e9a6-3338-45bc-a211-6ff257579f22",
+              "port": "ed4a3dc2-2e68-43f0-9b8d-372812f8cab6"
+            },
+            "target": {
+              "cell": "7bd05957-a169-46ee-9391-1960ccd79c6e",
+              "port": "2ad0fc34-a1f3-4db3-94ee-7cfc4be2e86b"
+            },
+            "vertices": [
+              {
+                "x": 600,
+                "y": 270
+              }
+            ]
           }
         ],
         "description": "kososng"
