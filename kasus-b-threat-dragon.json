@@ -1,0 +1,1720 @@
+{
+  "version": "2.4.0",
+  "summary": {
+    "title": "Kasus B - Sistem Berbagi Dokumen via Tautan Sementara",
+    "owner": "",
+    "description": "DFD sistem berbagi dokumen melalui tautan sementara (24 jam). Membedakan file (Object Storage) dari metadata (Database Metadata), menampilkan alur penerima tanpa login, dan batas kepercayaan.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": ""
+      }
+    ],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "DFD Level 1 - Berbagi Dokumen via Tautan",
+        "diagramType": "STRIDE",
+        "placeholder": "Deskripsi diagram",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.4.0",
+        "cells": [
+          {
+            "position": {
+              "x": 20,
+              "y": 20
+            },
+            "size": {
+              "width": 260,
+              "height": 880
+            },
+            "attrs": {
+              "label": {
+                "text": "TB1 - Zona Publik / Internet (Browser)"
+              },
+              "headerText": {
+                "text": "TB1 - Zona Publik / Internet (Browser)"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 2,
+                "strokeDasharray": "9 9"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "fd9c94a3-9408-4d6b-9c41-91b89395634f",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB1 - Zona Publik / Internet (Browser)",
+              "description": "Browser pemilik, penerima eksternal, dan admin. Tidak dipercaya; semua input harus divalidasi di backend.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": true
+            }
+          },
+          {
+            "position": {
+              "x": 330,
+              "y": 20
+            },
+            "size": {
+              "width": 610,
+              "height": 880
+            },
+            "attrs": {
+              "label": {
+                "text": "TB2 - Zona Backend Dokumen"
+              },
+              "headerText": {
+                "text": "TB2 - Zona Backend Dokumen"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 2,
+                "strokeDasharray": "9 9"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "c7f97701-e5ac-4061-a777-c06a0297b1ba",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB2 - Zona Backend Dokumen",
+              "description": "Aplikasi backend: autentikasi, otorisasi, validasi tautan, pencatatan audit. Satu-satunya perantara akses ke penyimpanan.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": true
+            }
+          },
+          {
+            "position": {
+              "x": 990,
+              "y": 20
+            },
+            "size": {
+              "width": 300,
+              "height": 500
+            },
+            "attrs": {
+              "label": {
+                "text": "TB3 - Database Metadata"
+              },
+              "headerText": {
+                "text": "TB3 - Database Metadata"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 2,
+                "strokeDasharray": "9 9"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "60eb6ff1-f1a8-4dcf-9c5b-8d409f685856",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB3 - Database Metadata",
+              "description": "Menyimpan metadata file, data tautan, dan log audit. Bukan isi file.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": true
+            }
+          },
+          {
+            "position": {
+              "x": 990,
+              "y": 580
+            },
+            "size": {
+              "width": 300,
+              "height": 320
+            },
+            "attrs": {
+              "label": {
+                "text": "TB4 - Object Storage"
+              },
+              "headerText": {
+                "text": "TB4 - Object Storage"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 2,
+                "strokeDasharray": "9 9"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "f5e49d01-1a92-4ce9-a5b7-4707bcf890bf",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB4 - Object Storage",
+              "description": "Menyimpan isi file. Hanya dapat diakses oleh backend.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": true
+            }
+          },
+          {
+            "position": {
+              "x": 70,
+              "y": 100
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "Pemilik Dokumen"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "57656e10-74e0-44dc-9089-c67d2e60a3f6",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Pemilik Dokumen",
+              "description": "Pengguna berakun; mengunggah file, membuat/mencabut/meninjau tautan.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "providesAuthentication": false,
+              "isTrustBoundary": false
+            }
+          },
+          {
+            "position": {
+              "x": 70,
+              "y": 430
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "Penerima Eksternal"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "d4b591b8-9b8a-46c9-858f-043233da8bde",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Penerima Eksternal",
+              "description": "Tanpa login; membuka tautan sementara lewat browser.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "providesAuthentication": false,
+              "isTrustBoundary": false
+            }
+          },
+          {
+            "position": {
+              "x": 70,
+              "y": 740
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "Admin Organisasi"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "240047fb-6953-4578-9e26-61ecdc4e2463",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Admin Organisasi",
+              "description": "Meninjau metadata dan log; tidak melihat isi file secara default.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "providesAuthentication": false,
+              "isTrustBoundary": false
+            }
+          },
+          {
+            "position": {
+              "x": 400,
+              "y": 70
+            },
+            "size": {
+              "width": 110,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "P1 Unggah File"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "d61d8c64-56fa-491d-b353-e60291134c46",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "P1 Unggah File",
+              "description": "Autentikasi pemilik, validasi file, simpan isi ke Object Storage dan metadata ke DB.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "privilegeLevel": "",
+              "isWebApplication": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isOnlyLogin": false,
+              "implementsAuthenticationScheme": false,
+              "implementsCSRFToken": false,
+              "isTrustBoundary": false
+            }
+          },
+          {
+            "position": {
+              "x": 400,
+              "y": 250
+            },
+            "size": {
+              "width": 110,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "P2 Kelola Tautan"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "a017ffb3-71c5-4b1a-bba4-8d6070ac33b9",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "P2 Kelola Tautan",
+              "description": "Buat tautan (24 jam), cabut, dan tampilkan daftar tautan aktif milik pemilik.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "privilegeLevel": "",
+              "isWebApplication": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isOnlyLogin": false,
+              "implementsAuthenticationScheme": false,
+              "implementsCSRFToken": false,
+              "isTrustBoundary": false
+            }
+          },
+          {
+            "position": {
+              "x": 400,
+              "y": 430
+            },
+            "size": {
+              "width": 110,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "P3 Validasi Tautan & Unduh"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "8164f5ee-463c-4129-ac1e-15f95f08b6f4",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "P3 Validasi Tautan & Unduh",
+              "description": "Validasi token (ada, belum kedaluwarsa, tidak dicabut), ambil file, kirim ke penerima.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "privilegeLevel": "",
+              "isWebApplication": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isOnlyLogin": false,
+              "implementsAuthenticationScheme": false,
+              "implementsCSRFToken": false,
+              "isTrustBoundary": false
+            }
+          },
+          {
+            "position": {
+              "x": 400,
+              "y": 740
+            },
+            "size": {
+              "width": 110,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "P5 Tinjau Metadata & Log"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "7e4dda98-ba9f-4b7a-b056-ed61f324f388",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "P5 Tinjau Metadata & Log",
+              "description": "Otorisasi peran admin; hanya metadata dan log, bukan isi file.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "privilegeLevel": "",
+              "isWebApplication": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isOnlyLogin": false,
+              "implementsAuthenticationScheme": false,
+              "implementsCSRFToken": false,
+              "isTrustBoundary": false
+            }
+          },
+          {
+            "position": {
+              "x": 720,
+              "y": 250
+            },
+            "size": {
+              "width": 110,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "P4 Catat Audit"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "9ae35408-014e-473b-8c97-2e7beb5c046a",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "P4 Catat Audit",
+              "description": "Menulis log pembuatan, pencabutan, dan penggunaan tautan.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "privilegeLevel": "",
+              "isWebApplication": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isOnlyLogin": false,
+              "implementsAuthenticationScheme": false,
+              "implementsCSRFToken": false,
+              "isTrustBoundary": false
+            }
+          },
+          {
+            "position": {
+              "x": 1055,
+              "y": 100
+            },
+            "size": {
+              "width": 170,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "DS1 Metadata File & Tautan"
+              },
+              "topLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "6ed1b796-4182-476d-9db9-ef358158bf0a",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Store",
+              "name": "DS1 Metadata File & Tautan",
+              "description": "Pemilik, nama file, tipe, waktu unggah; identitas tautan (token/hash), masa berlaku, status pencabutan.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isALog": false,
+              "isEncrypted": true,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "isTrustBoundary": false
+            }
+          },
+          {
+            "position": {
+              "x": 1055,
+              "y": 330
+            },
+            "size": {
+              "width": 170,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "DS2 Log Audit"
+              },
+              "topLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "b2558529-6d86-49c3-acd9-5f4cd5d04d61",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Store",
+              "name": "DS2 Log Audit",
+              "description": "Catatan pembuatan, pencabutan, penggunaan tautan.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isALog": true,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "isTrustBoundary": false
+            }
+          },
+          {
+            "position": {
+              "x": 1055,
+              "y": 680
+            },
+            "size": {
+              "width": 170,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "DS3 Object Storage (Isi File)"
+              },
+              "topLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "23af6f22-b0a5-4d08-9a72-4a66429727fc",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Store",
+              "name": "DS3 Object Storage (Isi File)",
+              "description": "Isi file; diakses hanya oleh backend (tanpa URL publik langsung).",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isALog": false,
+              "isEncrypted": true,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "isTrustBoundary": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "a62ace47-93db-456e-ab96-2a752bc815fa",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F1 Berkas + sesi login"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "57656e10-74e0-44dc-9089-c67d2e60a3f6"
+            },
+            "target": {
+              "cell": "d61d8c64-56fa-491d-b353-e60291134c46"
+            },
+            "vertices": [],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F1 Berkas + sesi login",
+              "description": "Unggah file oleh pemilik terautentikasi.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "HTTPS",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "1a2d43a1-86bb-4432-8c86-e5b7d9c5f12f",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F2 Isi file"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "d61d8c64-56fa-491d-b353-e60291134c46"
+            },
+            "target": {
+              "cell": "23af6f22-b0a5-4d08-9a72-4a66429727fc"
+            },
+            "vertices": [
+              {
+                "x": 880,
+                "y": 60
+              },
+              {
+                "x": 1140,
+                "y": 620
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F2 Isi file",
+              "description": "Backend menyimpan isi file.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "HTTPS/API Storage",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "f4aff222-0026-48d4-be73-a1c6617de896",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F3 Metadata file"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "d61d8c64-56fa-491d-b353-e60291134c46"
+            },
+            "target": {
+              "cell": "6ed1b796-4182-476d-9db9-ef358158bf0a"
+            },
+            "vertices": [
+              {
+                "x": 900,
+                "y": 110
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F3 Metadata file",
+              "description": "Pemilik, nama, tipe, waktu unggah.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "DB",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "48872766-cdcb-4fd6-be79-97f0a8985b81",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F4 Event unggah"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "d61d8c64-56fa-491d-b353-e60291134c46"
+            },
+            "target": {
+              "cell": "9ae35408-014e-473b-8c97-2e7beb5c046a"
+            },
+            "vertices": [
+              {
+                "x": 640,
+                "y": 200
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F4 Event unggah",
+              "description": "Peristiwa untuk log audit.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "Internal",
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "74936946-c52c-4c6f-bbf9-aefc6582ce8e",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F5 Buat/cabut/lihat tautan"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "57656e10-74e0-44dc-9089-c67d2e60a3f6"
+            },
+            "target": {
+              "cell": "a017ffb3-71c5-4b1a-bba4-8d6070ac33b9"
+            },
+            "vertices": [
+              {
+                "x": 300,
+                "y": 300
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F5 Buat/cabut/lihat tautan",
+              "description": "Permintaan manajemen tautan dari pemilik.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "HTTPS",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "085be921-db9b-44c9-be91-ebfae8014b61",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F6 Simpan/ubah tautan"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "a017ffb3-71c5-4b1a-bba4-8d6070ac33b9"
+            },
+            "target": {
+              "cell": "6ed1b796-4182-476d-9db9-ef358158bf0a"
+            },
+            "vertices": [],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F6 Simpan/ubah tautan",
+              "description": "Token (hash), kedaluwarsa 24 jam, status cabut.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "DB",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "c7cba3fe-7c3c-4704-aede-b55d064342a3",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F7 Daftar tautan aktif"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "6ed1b796-4182-476d-9db9-ef358158bf0a"
+            },
+            "target": {
+              "cell": "a017ffb3-71c5-4b1a-bba4-8d6070ac33b9"
+            },
+            "vertices": [
+              {
+                "x": 900,
+                "y": 330
+              },
+              {
+                "x": 600,
+                "y": 340
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F7 Daftar tautan aktif",
+              "description": "Data tautan milik pemilik.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "DB",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "eac1f53d-b42f-4249-9551-f5dbf6cdcc6a",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F8 URL tautan & daftar"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "a017ffb3-71c5-4b1a-bba4-8d6070ac33b9"
+            },
+            "target": {
+              "cell": "57656e10-74e0-44dc-9089-c67d2e60a3f6"
+            },
+            "vertices": [
+              {
+                "x": 330,
+                "y": 220
+              },
+              {
+                "x": 250,
+                "y": 180
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F8 URL tautan & daftar",
+              "description": "Tautan dikembalikan ke pemilik.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "HTTPS",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "47c0d42f-bc69-46eb-b6d7-a2adc5eabc97",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F9 Event buat/cabut"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "a017ffb3-71c5-4b1a-bba4-8d6070ac33b9"
+            },
+            "target": {
+              "cell": "9ae35408-014e-473b-8c97-2e7beb5c046a"
+            },
+            "vertices": [],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F9 Event buat/cabut",
+              "description": "Peristiwa untuk log audit.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "Internal",
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "86445684-bb79-42ce-9ab2-62d7a1bee409",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F10 Tautan dikirim via kanal di luar aplikasi (di luar lingkup)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "57656e10-74e0-44dc-9089-c67d2e60a3f6"
+            },
+            "target": {
+              "cell": "d4b591b8-9b8a-46c9-858f-043233da8bde"
+            },
+            "vertices": [
+              {
+                "x": 40,
+                "y": 300
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F10 Tautan dikirim via kanal di luar aplikasi (di luar lingkup)",
+              "description": "Pemilik membagikan tautan lewat saluran komunikasi lain; di luar lingkup analisis.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "Di luar aplikasi",
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": true
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "6359cad6-c7b7-4f59-8dd6-5f8b38f9df6d",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F11 Permintaan akses (token, tanpa login)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "d4b591b8-9b8a-46c9-858f-043233da8bde"
+            },
+            "target": {
+              "cell": "8164f5ee-463c-4129-ac1e-15f95f08b6f4"
+            },
+            "vertices": [],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F11 Permintaan akses (token, tanpa login)",
+              "description": "Browser penerima membuka tautan.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "HTTPS",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "46cb9b34-04af-4765-b9d5-83137dfc4838",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F12 Validasi token/status/metadata"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "6ed1b796-4182-476d-9db9-ef358158bf0a"
+            },
+            "target": {
+              "cell": "8164f5ee-463c-4129-ac1e-15f95f08b6f4"
+            },
+            "vertices": [
+              {
+                "x": 960,
+                "y": 480
+              },
+              {
+                "x": 620,
+                "y": 480
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F12 Validasi token/status/metadata",
+              "description": "Cek keberadaan, kedaluwarsa, pencabutan.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "DB",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "dcd7633f-5ebd-426c-ac1c-b4987acc2186",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F13 Isi file"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "23af6f22-b0a5-4d08-9a72-4a66429727fc"
+            },
+            "target": {
+              "cell": "8164f5ee-463c-4129-ac1e-15f95f08b6f4"
+            },
+            "vertices": [
+              {
+                "x": 1000,
+                "y": 740
+              },
+              {
+                "x": 600,
+                "y": 560
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F13 Isi file",
+              "description": "Backend mengambil file untuk dikirim.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "HTTPS/API Storage",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "4eaae8f2-1253-4b26-b244-39fc34ce15e4",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F14 File unduhan / penolakan"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "8164f5ee-463c-4129-ac1e-15f95f08b6f4"
+            },
+            "target": {
+              "cell": "d4b591b8-9b8a-46c9-858f-043233da8bde"
+            },
+            "vertices": [
+              {
+                "x": 300,
+                "y": 520
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F14 File unduhan / penolakan",
+              "description": "Respons ke penerima.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "HTTPS",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "dcc68b66-4c36-4aa6-9e3e-aeeb70267730",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F15 Event akses"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "8164f5ee-463c-4129-ac1e-15f95f08b6f4"
+            },
+            "target": {
+              "cell": "9ae35408-014e-473b-8c97-2e7beb5c046a"
+            },
+            "vertices": [
+              {
+                "x": 700,
+                "y": 400
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F15 Event akses",
+              "description": "Peristiwa unduh/ditolak.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "Internal",
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "dc396861-d9bd-47a0-8c8d-f0cdd7a3e491",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F16 Catatan audit"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "9ae35408-014e-473b-8c97-2e7beb5c046a"
+            },
+            "target": {
+              "cell": "b2558529-6d86-49c3-acd9-5f4cd5d04d61"
+            },
+            "vertices": [
+              {
+                "x": 950,
+                "y": 300
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F16 Catatan audit",
+              "description": "Tulis log.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "DB",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "3440345c-9e50-4293-8237-3e8acf60a81e",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F17 Permintaan tinjau"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "240047fb-6953-4578-9e26-61ecdc4e2463"
+            },
+            "target": {
+              "cell": "7e4dda98-ba9f-4b7a-b056-ed61f324f388"
+            },
+            "vertices": [],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F17 Permintaan tinjau",
+              "description": "Admin meminta metadata/log.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "HTTPS",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "dd03667d-bf86-471b-b02c-900394e80d4e",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F18 Metadata"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "6ed1b796-4182-476d-9db9-ef358158bf0a"
+            },
+            "target": {
+              "cell": "7e4dda98-ba9f-4b7a-b056-ed61f324f388"
+            },
+            "vertices": [
+              {
+                "x": 970,
+                "y": 700
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F18 Metadata",
+              "description": "Metadata saja.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "DB",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "7aedae99-d221-42d1-a531-5713aa0d8c46",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F19 Log audit"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "b2558529-6d86-49c3-acd9-5f4cd5d04d61"
+            },
+            "target": {
+              "cell": "7e4dda98-ba9f-4b7a-b056-ed61f324f388"
+            },
+            "vertices": [
+              {
+                "x": 940,
+                "y": 420
+              },
+              {
+                "x": 800,
+                "y": 720
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F19 Log audit",
+              "description": "Log saja.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "DB",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "id": "73afc0e2-6b10-4dc0-9aa8-bd2324847a79",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F20 Metadata & log (tanpa isi file)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "7e4dda98-ba9f-4b7a-b056-ed61f324f388"
+            },
+            "target": {
+              "cell": "240047fb-6953-4578-9e26-61ecdc4e2463"
+            },
+            "vertices": [
+              {
+                "x": 320,
+                "y": 830
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "F20 Metadata & log (tanpa isi file)",
+              "description": "Respons ke admin.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "protocol": "HTTPS",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false
+            }
+          }
+        ]
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "",
+    "threatTop": 0
+  }
+}
